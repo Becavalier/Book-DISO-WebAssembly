@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 初始化全局 Module，由 Emscripten 工具链自动为我们初始化；
+  var Module = {};
+
+  fetch('dependent.wasm').then(response => response.arrayBuffer()).then((bytes) => {
+    // 填充主要数据
+    Module.wasmBinary = bytes;
+    // 异步载入初始化脚本（该脚本是编译后自动生成的）
+    var script = document.createElement('script');
+    script.src = "dependent.js";
+    document.body.appendChild(script);
+  });
+</script>
+</body>
+</html>

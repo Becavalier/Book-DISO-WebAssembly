@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emscripten - Standalone WebAssembly Module</title>
+</head>
+<body>
+
+<script>
+// 远程加载目标 Wasm 模块；
+fetch('emscripten-standalone.wasm').then(response => response.arrayBuffer()).then(bytes =>
+  // 没有需要向模块“import”的内容；
+  WebAssembly.instantiate(bytes, {})
+).then(result => {
+	// 从“exports”对象中获取模块暴露的方法；
+	const exportFuncAdd = result.instance.exports['_add'];
+	// 调用方法；
+  console.log(exportFuncAdd(10, 20));
+});
+</script>
+</body>
+</html>

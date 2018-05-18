@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emscripten - Standalone WebAssembly Module</title>
+</head>
+<body>
+
+<script>
+// 远程加载目标 Wasm 模块；
+fetch('emscripten-dynamic-standalone.wasm').then(response => response.arrayBuffer()).then(bytes =>
+  WebAssembly.instantiate(bytes, {
+  	// 向模块导入用于初始化的“env”模块对象；
+  	env: {
+  		memoryBase: 0,
+  		tableBase: 0,
+  		table: new WebAssembly.Table({ initial: 2, element: 'anyfunc' }),
+  		abort: function (msg) {
+  			console.error(msg);
+  		}
+  	}
+  })
+).then(result => {
+	// 从“exports”对象中获取模块暴露的方法；
+	const exportFuncAdd = result.instance.exports['_add'];
+	// 调用方法；
+  console.log(exportFuncAdd(10, 20));
+});
+</script>
+</body>
+</html>
