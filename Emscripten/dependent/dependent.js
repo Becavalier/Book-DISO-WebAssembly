@@ -15,6 +15,8 @@ var Module = typeof Module !== 'undefined' ? Module : {};
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
+let Global = [];
+
 
 
 // Sometimes an existing Module object exists with properties
