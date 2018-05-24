@@ -20,3 +20,4 @@ __ATMAIN__.push(() => {
 __ATEXIT__.push(() => {
   console.log("[__ATEXIT__] Prints from exit stage ...");
 });
+
