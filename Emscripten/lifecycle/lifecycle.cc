@@ -10,7 +10,7 @@ int *p = &counter;
 
 void one_iter (void) {
   cout << "[emscripten_set_main_loop] Prints from main loop ..." <<  counter++ << endl;
-  if (counter == 10) {
+  if (counter == 5) {
     emscripten_pause_main_loop();
     emscripten_force_exit(1);
   }
