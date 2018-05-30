@@ -506,12 +506,16 @@ function cwrap (ident, returnType, argTypes) {
   var cfunc = getCFunc(ident);
   // When the function takes numbers and returns a number, we can just return
   // the original function
+  // 判断函数形参类型是否均为数字值；
   var numericArgs = argTypes.every(function(type){ return type === 'number'});
+  // 判断返回值是否为数字值（数字+指针）；
   var numericRet = returnType !== 'string';
+  // 如果是则直接返回函数实体；
   if (numericRet && numericArgs) {
     return cfunc;
   }
   return function() {
+    // 通过柯里化固定一部分参数值；
     return ccall(ident, returnType, argTypes, arguments);
   }
 }
@@ -1528,7 +1532,7 @@ function copyTempDouble(ptr) {
 
   function ___lock() {}
 
-  
+
   var SYSCALLS={varargs:0,get:function (varargs) {
         SYSCALLS.varargs += 4;
         var ret = HEAP32[(((SYSCALLS.varargs)-(4))>>2)];
@@ -1559,7 +1563,7 @@ function copyTempDouble(ptr) {
   }
   }
 
-  
+
   function flush_NO_FILESYSTEM() {
       // flush anything remaining in the buffers during shutdown
       var fflush = Module["_fflush"];
@@ -1627,20 +1631,20 @@ function copyTempDouble(ptr) {
 
   function ___unlock() {}
 
-  
+
   function _emscripten_memcpy_big(dest, src, num) {
       HEAPU8.set(HEAPU8.subarray(src, src+num), dest);
       return dest;
-    } 
+    }
 
-   
 
-  
+
+
   function ___setErrNo(value) {
       if (Module['___errno_location']) HEAP32[((Module['___errno_location']())>>2)]=value;
       else Module.printErr('failed to set errno from JS');
       return value;
-    } 
+    }
 DYNAMICTOP_PTR = staticAlloc(4);
 
 STACK_BASE = STACKTOP = alignMemory(STATICTOP);
@@ -5069,7 +5073,7 @@ function _sbrk(increment) {
     return oldDynamicTop|0;
 }
 
-  
+
 function dynCall_ii(index,a1) {
   index = index|0;
   a1=a1|0;
