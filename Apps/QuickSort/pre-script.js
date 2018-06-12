@@ -1,0 +1,1 @@
+var startTimestamp = performance.now();
