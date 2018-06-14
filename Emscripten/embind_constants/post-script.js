@@ -1,0 +1,19 @@
+__ATPOSTRUN__.push(() => {
+  console.log(Module['val_bool']);
+  console.log(Module['val_char']);
+  console.log(Module['val_s_char']);
+  console.log(Module['val_u_char']);
+  console.log(Module['val_short']);
+  console.log(Module['val_s_short']);
+  console.log(Module['val_u_short']);
+  console.log(Module['val_int']);
+  console.log(Module['val_s_int']);
+  console.log(Module['val_u_int']);
+  console.log(Module['val_long']);
+  console.log(Module['val_s_long']);
+  console.log(Module['val_u_long']);
+  console.log(Module['val_float']);
+  console.log(Module['val_double']);
+  console.log(Module['val_string']);
+  console.log(Module['val_wstring']);
+});
