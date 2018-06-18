@@ -1,0 +1,8 @@
+interface WebIDL {
+	void WebIDL(long x);
+	long getValueXByValue();
+	[Value] WebIDL passThroughToValue(WebIDL i);
+
+	WebIDL passThroughByPointer(WebIDL i);
+	[Ref] WebIDL passThroughByReference([Ref] WebIDL i);
+};
