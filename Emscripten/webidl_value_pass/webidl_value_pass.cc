@@ -6,6 +6,7 @@ using namespace std;
 
 class WebIDL {
 public:
+	WebIDL () = default;
 	WebIDL (int x) : x(x) {}
 	int getValueXByValue (void) const {
 		return x;

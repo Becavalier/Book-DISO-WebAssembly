@@ -1,4 +1,5 @@
 interface WebIDL {
+	void WebIDL();
 	void WebIDL(long x);
 	long getValueXByValue();
 	[Value] WebIDL passThroughToValue(WebIDL i);

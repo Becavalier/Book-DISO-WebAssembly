@@ -171,6 +171,7 @@ function ensureFloat64(value) {
 // WebIDL
 /** @suppress {undefinedVars, duplicate} */function WebIDL(arg0) {
   if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg0 === undefined) { this.ptr = _emscripten_bind_WebIDL_WebIDL_0(); getCache(WebIDL)[this.ptr] = this;return }
   this.ptr = _emscripten_bind_WebIDL_WebIDL_1(arg0);
   getCache(WebIDL)[this.ptr] = this;
 };;

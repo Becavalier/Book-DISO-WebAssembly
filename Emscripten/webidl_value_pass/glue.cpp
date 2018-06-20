@@ -14,6 +14,10 @@ void array_bounds_check(const int array_size, const int array_idx) {
 
 // WebIDL
 
+WebIDL* EMSCRIPTEN_KEEPALIVE emscripten_bind_WebIDL_WebIDL_0() {
+  return new WebIDL();
+}
+
 WebIDL* EMSCRIPTEN_KEEPALIVE emscripten_bind_WebIDL_WebIDL_1(int arg0) {
   return new WebIDL(arg0);
 }

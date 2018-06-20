@@ -2081,6 +2081,12 @@ var real__emscripten_bind_VoidPtr___destroy___0 = asm["_emscripten_bind_VoidPtr_
   return real__emscripten_bind_VoidPtr___destroy___0.apply(null, arguments);
 };
 
+var real__emscripten_bind_WebIDL_WebIDL_0 = asm["_emscripten_bind_WebIDL_WebIDL_0"]; asm["_emscripten_bind_WebIDL_WebIDL_0"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return real__emscripten_bind_WebIDL_WebIDL_0.apply(null, arguments);
+};
+
 var real__emscripten_bind_WebIDL_WebIDL_1 = asm["_emscripten_bind_WebIDL_WebIDL_1"]; asm["_emscripten_bind_WebIDL_WebIDL_1"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2109,6 +2115,12 @@ var real__emscripten_bind_WebIDL_passThroughByReference_1 = asm["_emscripten_bin
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return real__emscripten_bind_WebIDL_passThroughByReference_1.apply(null, arguments);
+};
+
+var real__emscripten_bind_WebIDL_passThroughToValue_1 = asm["_emscripten_bind_WebIDL_passThroughToValue_1"]; asm["_emscripten_bind_WebIDL_passThroughToValue_1"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return real__emscripten_bind_WebIDL_passThroughToValue_1.apply(null, arguments);
 };
 
 var real__fflush = asm["_fflush"]; asm["_fflush"] = function() {
@@ -2185,6 +2197,10 @@ var _emscripten_bind_VoidPtr___destroy___0 = Module["_emscripten_bind_VoidPtr___
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return Module["asm"]["_emscripten_bind_VoidPtr___destroy___0"].apply(null, arguments) };
+var _emscripten_bind_WebIDL_WebIDL_0 = Module["_emscripten_bind_WebIDL_WebIDL_0"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return Module["asm"]["_emscripten_bind_WebIDL_WebIDL_0"].apply(null, arguments) };
 var _emscripten_bind_WebIDL_WebIDL_1 = Module["_emscripten_bind_WebIDL_WebIDL_1"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2205,6 +2221,10 @@ var _emscripten_bind_WebIDL_passThroughByReference_1 = Module["_emscripten_bind_
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return Module["asm"]["_emscripten_bind_WebIDL_passThroughByReference_1"].apply(null, arguments) };
+var _emscripten_bind_WebIDL_passThroughToValue_1 = Module["_emscripten_bind_WebIDL_passThroughToValue_1"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return Module["asm"]["_emscripten_bind_WebIDL_passThroughToValue_1"].apply(null, arguments) };
 var _fflush = Module["_fflush"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2714,6 +2734,7 @@ function ensureFloat64(value) {
 // WebIDL
 /** @suppress {undefinedVars, duplicate} */function WebIDL(arg0) {
   if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  if (arg0 === undefined) { this.ptr = _emscripten_bind_WebIDL_WebIDL_0(); getCache(WebIDL)[this.ptr] = this;return }
   this.ptr = _emscripten_bind_WebIDL_WebIDL_1(arg0);
   getCache(WebIDL)[this.ptr] = this;
 };;
@@ -2726,6 +2747,12 @@ Module['WebIDL'] = WebIDL;
 WebIDL.prototype['getValueXByValue'] = WebIDL.prototype.getValueXByValue = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
   return _emscripten_bind_WebIDL_getValueXByValue_0(self);
+};;
+
+WebIDL.prototype['passThroughToValue'] = WebIDL.prototype.passThroughToValue = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+  var self = this.ptr;
+  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
+  return wrapPointer(_emscripten_bind_WebIDL_passThroughToValue_1(self, arg0), WebIDL);
 };;
 
 WebIDL.prototype['passThroughByPointer'] = WebIDL.prototype.passThroughByPointer = /** @suppress {undefinedVars, duplicate} */function(arg0) {
@@ -2771,6 +2798,7 @@ __ATPOSTRUN__.push(() => {
 	console.log(_t.getValueXByValue());
 	console.log(_t.passThroughByPointer(_k));
 	console.log(_t.passThroughByReference(_u));
+	console.log(_t.passThroughToValue(_u).getValueXByValue());
 	Module.destroy(_t);
 });
 
