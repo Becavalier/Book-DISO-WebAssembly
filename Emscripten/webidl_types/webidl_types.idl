@@ -1,0 +1,13 @@
+interface WebIDL {
+	void WebIDL();
+	boolean returnBool();
+	float returnFloat();
+	double returnDouble();
+	byte returnChar();
+	[Const] DOMString returnString();
+	octet returnUChar();
+	unsigned short returnUSInt();
+	unsigned short returnUShort();
+	unsigned long returnLong();
+};
+

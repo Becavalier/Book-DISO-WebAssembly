@@ -1,0 +1,6 @@
+interface WebIDL {
+	void WebIDL(long x);
+	long getValueXByValue();
+	[Operator="[]"] long doubleNum(long x);
+	attribute long x;
+};

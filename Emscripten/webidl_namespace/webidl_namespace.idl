@@ -1,0 +1,6 @@
+[Prefix="WebAssembly::"]
+interface WebIDL {
+	void WebIDL(long x);
+	long getValueXByValue();
+	attribute long x;
+};

@@ -1,0 +1,18 @@
+enum xEnum {
+  "enum_val1",
+  "enum_val2"
+};
+
+enum WebAssembly_yEnum {
+  "WebAssembly::ns_enum_val1",
+  "WebAssembly::ns_enum_val2"
+};
+
+
+enum xClass_zEnum {
+  "xClass::c_enum_val1",
+  "xClass::c_enum_val2"
+};
+interface xClass {
+  void xClass(long x);
+};

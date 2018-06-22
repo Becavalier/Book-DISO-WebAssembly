@@ -1,0 +1,7 @@
+interface WebIDL {
+	void WebIDL(long x, long y);
+	long getValueXByValue();
+	[Ref, Const] WebIDL passThroughByReference([Ref] WebIDL i);
+	readonly attribute long x;
+	attribute long y;
+};

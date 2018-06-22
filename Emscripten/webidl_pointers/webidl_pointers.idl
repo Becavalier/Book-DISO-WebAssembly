@@ -1,0 +1,8 @@
+interface WebIDL {
+	void WebIDL(long x);
+	long getValueXByValue();
+	WebIDL returnNull();
+	VoidPtr returnVoidPtr(WebIDL t);
+	any returnAnyPtr(WebIDL t);
+};
+

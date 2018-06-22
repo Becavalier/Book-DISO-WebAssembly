@@ -1,0 +1,4 @@
+interface WebIDL {
+	void WebIDL(long x);
+	attribute long x;
+};

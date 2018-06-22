@@ -1,0 +1,10 @@
+[JSImplementation="xClass"]
+interface ImplXClass {
+	void ImplXClass();
+  long virtualFunc (long x);
+};
+
+interface xClass {
+  long virtualFunc (long x);
+  long runVirtualFunc(xClass self, long x);
+};
