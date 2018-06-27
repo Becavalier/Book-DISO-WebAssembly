@@ -3,5 +3,6 @@ __ATPOSTRUN__.push(() => {
 	_t.virtualFunc = function(x) {
 		return 2 * x;
 	};
-	console.log(_t.runVirtualFunc(_t, 10));
+  console.log(_t.runVirtualFunc(_t, 10));
+  console.log(Module['xClass'].prototype.runVirtualFunc(_t, 10));
 });

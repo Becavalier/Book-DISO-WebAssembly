@@ -14,41 +14,41 @@ void array_bounds_check(const int array_size, const int array_idx) {
 
 // VoidPtr
 
-void EMSCRIPTEN_KEEPALIVE oemscripten_bind_VoidPtr___destroy___0(void** self) {
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_VoidPtr___destroy___0(void** self) {
   delete self;
 }
 
 // xClass
 
-xClass* EMSCRIPTEN_KEEPALIVE oemscripten_bind_xClass_xClass_1(int arg0) {
+xClass* EMSCRIPTEN_KEEPALIVE emscripten_bind_xClass_xClass_1(int arg0) {
   return new xClass(arg0);
 }
 
-void EMSCRIPTEN_KEEPALIVE oemscripten_bind_xClass___destroy___0(xClass* self) {
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_xClass___destroy___0(xClass* self) {
   delete self;
 }
 
 // xClass_zEnum
-xClass_zEnum EMSCRIPTEN_KEEPALIVE emscripten_enum_xClass_zEnum_c_enum_val1() {
+int EMSCRIPTEN_KEEPALIVE emscripten_enum_xClass_zEnum_c_enum_val1() {
   return xClass::c_enum_val1;
 }
-xClass_zEnum EMSCRIPTEN_KEEPALIVE emscripten_enum_xClass_zEnum_c_enum_val2() {
+int EMSCRIPTEN_KEEPALIVE emscripten_enum_xClass_zEnum_c_enum_val2() {
   return xClass::c_enum_val2;
 }
 
 // xEnum
-xEnum EMSCRIPTEN_KEEPALIVE emscripten_enum_xEnum_enum_val1() {
+int EMSCRIPTEN_KEEPALIVE emscripten_enum_xEnum_enum_val1() {
   return enum_val1;
 }
-xEnum EMSCRIPTEN_KEEPALIVE emscripten_enum_xEnum_enum_val2() {
+int EMSCRIPTEN_KEEPALIVE emscripten_enum_xEnum_enum_val2() {
   return enum_val2;
 }
 
 // WebAssembly_yEnum
-WebAssembly_yEnum EMSCRIPTEN_KEEPALIVE emscripten_enum_WebAssembly_yEnum_ns_enum_val1() {
+int EMSCRIPTEN_KEEPALIVE emscripten_enum_WebAssembly_yEnum_ns_enum_val1() {
   return WebAssembly::ns_enum_val1;
 }
-WebAssembly_yEnum EMSCRIPTEN_KEEPALIVE emscripten_enum_WebAssembly_yEnum_ns_enum_val2() {
+int EMSCRIPTEN_KEEPALIVE emscripten_enum_WebAssembly_yEnum_ns_enum_val2() {
   return WebAssembly::ns_enum_val2;
 }
 

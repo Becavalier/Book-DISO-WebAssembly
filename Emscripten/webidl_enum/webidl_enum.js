@@ -2075,6 +2075,24 @@ var real____errno_location = asm["___errno_location"]; asm["___errno_location"] 
   return real____errno_location.apply(null, arguments);
 };
 
+var real__emscripten_bind_VoidPtr___destroy___0 = asm["_emscripten_bind_VoidPtr___destroy___0"]; asm["_emscripten_bind_VoidPtr___destroy___0"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return real__emscripten_bind_VoidPtr___destroy___0.apply(null, arguments);
+};
+
+var real__emscripten_bind_xClass___destroy___0 = asm["_emscripten_bind_xClass___destroy___0"]; asm["_emscripten_bind_xClass___destroy___0"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return real__emscripten_bind_xClass___destroy___0.apply(null, arguments);
+};
+
+var real__emscripten_bind_xClass_xClass_1 = asm["_emscripten_bind_xClass_xClass_1"]; asm["_emscripten_bind_xClass_xClass_1"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return real__emscripten_bind_xClass_xClass_1.apply(null, arguments);
+};
+
 var real__emscripten_enum_WebAssembly_yEnum_ns_enum_val1 = asm["_emscripten_enum_WebAssembly_yEnum_ns_enum_val1"]; asm["_emscripten_enum_WebAssembly_yEnum_ns_enum_val1"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2129,24 +2147,6 @@ var real__malloc = asm["_malloc"]; asm["_malloc"] = function() {
   return real__malloc.apply(null, arguments);
 };
 
-var real__oemscripten_bind_VoidPtr___destroy___0 = asm["_oemscripten_bind_VoidPtr___destroy___0"]; asm["_oemscripten_bind_VoidPtr___destroy___0"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return real__oemscripten_bind_VoidPtr___destroy___0.apply(null, arguments);
-};
-
-var real__oemscripten_bind_xClass___destroy___0 = asm["_oemscripten_bind_xClass___destroy___0"]; asm["_oemscripten_bind_xClass___destroy___0"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return real__oemscripten_bind_xClass___destroy___0.apply(null, arguments);
-};
-
-var real__oemscripten_bind_xClass_xClass_1 = asm["_oemscripten_bind_xClass_xClass_1"]; asm["_oemscripten_bind_xClass_xClass_1"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return real__oemscripten_bind_xClass_xClass_1.apply(null, arguments);
-};
-
 var real__sbrk = asm["_sbrk"]; asm["_sbrk"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2199,6 +2199,18 @@ var ___errno_location = Module["___errno_location"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return Module["asm"]["___errno_location"].apply(null, arguments) };
+var _emscripten_bind_VoidPtr___destroy___0 = Module["_emscripten_bind_VoidPtr___destroy___0"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return Module["asm"]["_emscripten_bind_VoidPtr___destroy___0"].apply(null, arguments) };
+var _emscripten_bind_xClass___destroy___0 = Module["_emscripten_bind_xClass___destroy___0"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return Module["asm"]["_emscripten_bind_xClass___destroy___0"].apply(null, arguments) };
+var _emscripten_bind_xClass_xClass_1 = Module["_emscripten_bind_xClass_xClass_1"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return Module["asm"]["_emscripten_bind_xClass_xClass_1"].apply(null, arguments) };
 var _emscripten_enum_WebAssembly_yEnum_ns_enum_val1 = Module["_emscripten_enum_WebAssembly_yEnum_ns_enum_val1"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2243,18 +2255,6 @@ var _memset = Module["_memset"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return Module["asm"]["_memset"].apply(null, arguments) };
-var _oemscripten_bind_VoidPtr___destroy___0 = Module["_oemscripten_bind_VoidPtr___destroy___0"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return Module["asm"]["_oemscripten_bind_VoidPtr___destroy___0"].apply(null, arguments) };
-var _oemscripten_bind_xClass___destroy___0 = Module["_oemscripten_bind_xClass___destroy___0"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return Module["asm"]["_oemscripten_bind_xClass___destroy___0"].apply(null, arguments) };
-var _oemscripten_bind_xClass_xClass_1 = Module["_oemscripten_bind_xClass_xClass_1"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return Module["asm"]["_oemscripten_bind_xClass_xClass_1"].apply(null, arguments) };
 var _sbrk = Module["_sbrk"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
