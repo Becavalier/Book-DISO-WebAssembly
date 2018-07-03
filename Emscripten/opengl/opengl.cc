@@ -2,8 +2,6 @@
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
 
-using namespace std;
-
 // Global data.
 GLuint userProgramObject;
 
@@ -14,7 +12,7 @@ GLuint userProgramObject;
 GLuint loadShader (GLenum type, const char *shaderSrc) {
    GLuint shader;
    GLint compiled;
-   
+
    // Create the shader object.
    shader = glCreateShader (type);
 
@@ -23,7 +21,7 @@ GLuint loadShader (GLenum type, const char *shaderSrc) {
 
    // Load the shader source.
    glShaderSource (shader, 1, &shaderSrc, NULL);
-   
+
    // Compile the shader.
    glCompileShader (shader);
 
@@ -44,14 +42,14 @@ GLuint loadShader (GLenum type, const char *shaderSrc) {
 // Initialize the shader and program object.
 //
 int initialize_stage () {
-   char vShaderStr[] =  
+   char vShaderStr[] =
       "attribute vec4 vPosition;    \n"
       "void main()                  \n"
       "{                            \n"
       "   gl_Position = vPosition;  \n"
       "}                            \n";
-   
-   char fShaderStr[] =  
+
+   char fShaderStr[] =
       "precision mediump float;\n"\
       "void main()                                  \n"
       "{                                            \n"
@@ -69,7 +67,7 @@ int initialize_stage () {
 
    // Create the program object.
    programObject = glCreateProgram();
-   
+
    if (programObject == 0)
       return 0;
 
@@ -105,7 +103,7 @@ int initialize_stage () {
 // Draw a triangle using the shader pair created in initialize_stage()
 //
 void draw (int winWidth, int winHeight) {
-   GLfloat vVertices[] = {  0.0f,  0.5f, 0.0f, 
+   GLfloat vVertices[] = {  0.0f,  0.5f, 0.0f,
                            -0.5f, -0.5f, 0.0f,
                             0.5f, -0.5f, 0.0f };
 
@@ -114,10 +112,10 @@ void draw (int winWidth, int winHeight) {
    glGenBuffers(1, &vertexPosObject);
    glBindBuffer(GL_ARRAY_BUFFER, vertexPosObject);
    glBufferData(GL_ARRAY_BUFFER, 9*4, vVertices, GL_STATIC_DRAW);
-   
+
    // Set the viewport.
    glViewport (0, 0, winWidth, winHeight);
-   
+
    // Clear the color buffer.
    glClear (GL_COLOR_BUFFER_BIT);
 
