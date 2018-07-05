@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>DEMO-DIP</title>
+    <style>
+      * {
+        font-family: "Arial,sans-serif";
+      }
+      .fps-num {
+        font-size: 50px;
+      }
+      .video {
+        display: none;
+      }
+      .operation {
+        margin: 20px;
+      }
+      button {
+        width: 150px;
+        height: 30px;
+        margin-top: 10px;
+        border: solid 1px #999;
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .radio-text {
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="canvas-scenery"></canvas>
+    <div class="operation">
+      <h2>帧率：<span class="fps-num">NaN</span> FPS</h2>
+      <input name="options" value="0" type="radio" checked="checked"/> <span class="radio-text">不开启渲染.<span> <br/>
+      <input name="options" value="1" type="radio"/> <span class="radio-text">使用 <b>[JavaScript]</b> 渲染.<span> <br/>
+      <input name="options" value="2" type="radio"/> <span class="radio-text">使用 <b>[WebAssembly]</b> 渲染.<span> <br/>
+      <button>确认</button>
+    </div>
+    <video class="video" loop="true" autoplay="true" src="media/video.mp4" type="video/mp4">
+  </body>
+  <script src = './dip.js'></script>
+</html>
