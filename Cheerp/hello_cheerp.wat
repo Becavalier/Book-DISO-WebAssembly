@@ -1,0 +1,17 @@
+(module
+ (type $0 (func))
+ (import "imports" "__Z9domOutputPKc" (func $import$0))
+ (global $global$0 (mut i32) (i32.const 1048576))
+ (table 1 anyfunc)
+ (elem (i32.const 0) $0)
+ (memory $0 16 16)
+ (export "memory" (memory $0))
+ (export "m" (func $1))
+ (func $0 (type $0)
+  (unreachable)
+ )
+ (func $1 (type $0)
+  (call $import$0)
+ )
+)
+

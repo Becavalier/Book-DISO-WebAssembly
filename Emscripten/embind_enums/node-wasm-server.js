@@ -24,7 +24,7 @@ http.createServer((request, response) => {
           response.writeHead(500, {
             'Content-Type': 'text/plain'
           });
-          response.end(err);
+          response.end(err.code);
         } else {
         	var ext = path.extname(realPath);
           ext = ext ? ext.slice(1) : 'unknown';
