@@ -23,35 +23,33 @@ __ATPOSTRUN__.push(function() {
     [-1, 14, -1], 
     [1, -1, -1]
   ];
-  var divisor = 3;
+  var divisor = 4;
 
 
   // convex function (JS version);
-  function jsConvFilter(data, width, height, kernel, divisor, bias, count) {
-    bias = bias || 0;
-    count = count || 1;
+  function jsConvFilter(data, width, height, kernel, divisor) {
     const w = kernel[0].length;
     const h = kernel.length;
     const half = Math.floor(h / 2);
-    for (var i = 0; i < count; i += 1) {
-      for (var y = 1; y < height - 1; y += 1) {
-        for (var x = 1; x < width - 1; x += 1) {
-          const px = (y * width + x) * 4;  // pixel index
-          var r = 0, g = 0, b = 0;
-
-          for (var cy = 0; cy < h; ++cy) {
-            for (var cx = 0; cx < w; ++cx) {
-              const cpx = ((y + (cy - half)) * width + (x + (cx - half))) * 4;
-              r += data[cpx + 0] * kernel[cy][cx];
-              g += data[cpx + 1] * kernel[cy][cx];
-              b += data[cpx + 2] * kernel[cy][cx];
-            }
+    // picture iteration;
+    for (var y = 1; y < height - 1; y += 1) {
+      for (var x = 1; x < width - 1; x += 1) {
+        const px = (y * width + x) * 4;  // pixel index
+        var r = 0, g = 0, b = 0;
+        // core iteration;
+        for (var cy = 0; cy < h; ++cy) {
+          for (var cx = 0; cx < w; ++cx) {
+            // dealing edge case;
+            const cpx = ((y + (cy - half)) * width + (x + (cx - half))) * 4;
+            r += data[cpx + 0] * kernel[cy][cx];
+            g += data[cpx + 1] * kernel[cy][cx];
+            b += data[cpx + 2] * kernel[cy][cx];
           }
-
-          data[px + 0] = (1 / divisor) * r + bias;
-          data[px + 1] = (1 / divisor) * g + bias;
-          data[px + 2] = (1 / divisor) * b + bias;
         }
+
+        data[px + 0] = ((r / divisor) > 255) ? 255 : ((r / divisor) < 0) ? 0 : r / divisor;
+        data[px + 1] = ((g / divisor) > 255) ? 255 : ((g / divisor) < 0) ? 0 : g / divisor;
+        data[px + 2] = ((b / divisor) > 255) ? 255 : ((b / divisor) < 0) ? 0 : b / divisor;
       }
     }
     return data;
@@ -61,28 +59,29 @@ __ATPOSTRUN__.push(function() {
   // filters functions;
   function filterWASM (pixelData, width, height) {
     const arLen = pixelData.length;
-    const memData = _malloc(arLen * Float32Array.BYTES_PER_ELEMENT);
+    const memData = Module['_malloc'](arLen * Uint8Array.BYTES_PER_ELEMENT);
 
     // fill data into buffer;
-    HEAPF32.set(pixelData, memData / Float32Array.BYTES_PER_ELEMENT);
+    HEAPU8.set(pixelData, memData / Uint8Array.BYTES_PER_ELEMENT);
 
     const flatKernel = kernel.reduce(function(acc, cur) { 
       return acc.concat(cur)
     });
-    const memKernel = _malloc(9 * Float32Array.BYTES_PER_ELEMENT);
+  
+    const memKernel = Module['_malloc'](9 * Int8Array.BYTES_PER_ELEMENT);
 
     // fill data into buffer;
-    HEAPF32.set(flatKernel, memKernel / Float32Array.BYTES_PER_ELEMENT);
+    HEAP8.set(flatKernel, memKernel / Int8Array.BYTES_PER_ELEMENT);
 
     // core;
-    _convFilter(memData, width, height, memKernel, 3, 3, divisor, 0, 1);
+    Module['_convFilter'](memData, width, height, memKernel, 3, 3, divisor);
 
     // retrieve data;
-    const filtered = HEAPF32.subarray(memData / Float32Array.BYTES_PER_ELEMENT, memData / Float32Array.BYTES_PER_ELEMENT + arLen);
+    const filtered = HEAPU8.subarray(memData / Uint8Array.BYTES_PER_ELEMENT, memData / Uint8Array.BYTES_PER_ELEMENT + arLen);
 
     // clean;
-    _free(memData);
-    _free(memKernel);
+    Module['_free'](memData);
+    Module['_free'](memKernel);
     return filtered;
   }
 
