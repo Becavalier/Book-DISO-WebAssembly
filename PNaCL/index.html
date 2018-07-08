@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>PNaCl Fibonacci</title>
+
+  <script type="text/javascript">
+    // 对 PNaCl 应用的引用；
+    let appReference = null; 
+    let statusText = 'NO-STATUS';
+    let startTime = null;
+    // 将要传递给PNaCl模块的整数数据；
+    const fibonacciNumber = 45;
+
+    // Indicate load success.
+    function moduleDidLoad() {
+       // 获取初始化标签DOM对象的引用；
+      appReference = document.getElementById('pnacl_fibonacci');
+      updateStatus('SUCCESS');
+      // 向 PNaCl 应用发送数据；
+      // 更新开始时间，在这里用来统计 PNaCl 在推导 Fibonacci 数列时所花费的时间；
+      startTime = performance.now();
+      // 发送数据；
+      appReference.postMessage(fibonacciNumber);
+    }
+
+    // JavaScript 环境的消息处理函数，当 PNaCl 向 JavaScript 发送消息时可以在这里接收消息并进行处理；
+    function handleMessage(message_event) {
+      console.log(message_event.data);
+      // 计算并打印出 PNaCl 应用在推导Fibonacci 数列时所花费的时间；
+      let usedTime = performance.now() - startTime;
+      console.log(`${usedTime} ms`);
+    }  
+
+    // 页面载入事件；
+    function pageDidLoad() {
+      if (appReference == null) {
+        // 若 PNaCl 的应用引用变量内容为空，则表示应用正在加载中；
+        updateStatus('LOADING...');
+      } else {
+        updateStatus();
+      }
+    }
+
+    // 用来更新所显示状态信息的函数；
+    function updateStatus(opt_message) {
+      if (opt_message) {
+        statusText = opt_message;
+  	  }
+      var statusField = document.getElementById('statusField');
+      if (statusField) {
+        statusField.innerHTML = statusText;
+      }
+    }
+  </script>
+</head>
+<body onload=pageDidLoad()">
+
+  <h1>NaCl C++ Tutorial: Getting Started</h1>
+  <p>
+  
+    <div id="listener">
+      <script type="text/javascript">
+        var listener = document.getElementById('listener');
+        listener.addEventListener('load', moduleDidLoad, true);
+        listener.addEventListener('message', handleMessage, true);
+      </script>
+      <embed id="pnacl_fibonacci"
+             width=0 height=0
+             src="pnacl_fibonacci.nmf"
+             type="application/x-pnacl" />
+    </div>
+  </p>
+
+  <h2>Status <code id="statusField">NO-STATUS</code></h2>
+</body>
+</html>
