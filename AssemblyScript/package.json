@@ -1,0 +1,17 @@
+{
+  "name": "assemblyscript-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:untouched && npm run build:optimized",
+    "build:untouched": "asc assembly/module.ts -t module.untouched.wat -b module.untouched.wasm --validate --sourceMap --measure",
+    "build:optimized": "asc assembly/module.ts -t module.optimized.wat -b module.optimized.wasm --validate --sourceMap --measure --optimize"
+  },
+  "author": "YHSPY",
+  "license": "MIT",
+  "devDependencies": {
+    "assemblyscript": "github:AssemblyScript/assemblyscript",
+    "glob": "^7.1.2"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["assembly/module.ts"],"names":[],"mappings":"iEACa,AAAJ,EAAI","sourceRoot":"assemblyscript:///","sourceContents":["export function add(a: i32, b: i32): i32 {\n  return a + b;\n}"]}
