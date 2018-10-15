@@ -14,7 +14,7 @@ public:
 class DerivedClass : public BaseClass {
 public:
 	DerivedClass() = default;
-	virtual std::string invoke(const std::string &str) {
+	std::string invoke(const std::string &str) override {
 		return str + " - from 'DerivedClass'";
 	}
 };
