@@ -1,0 +1,5 @@
+interface WebIDL {
+  void WebIDL();
+	WebIDL returnNullPtr();
+};
+

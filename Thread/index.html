@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebAssembly Thread</title>
+</head>
+<body>
+<script>
+	// Standard: https://github.com/WebAssembly/threads/blob/master/proposals/threads/Overview.md
+	fetch('main.wasm').then(response => response.arrayBuffer()).then(bytes => {
+		let memory = new WebAssembly.Memory({initial: 1, maximum: 1, shared: true});
+		let worker = new Worker('worker.js');
+		const mutexAddr = 0;
+
+		worker.postMessage(memory);
+
+		let imports = {env: {memory: memory}};
+		let module = WebAssembly.instantiate(bytes, imports).then(
+	    ({instance}) => {
+	        if (instance.exports.tryLockMutex(mutexAddr)) {
+	            instance.exports.unlockMutex(mutexAddr);
+	        }
+	    });
+	});  
+</script>
+</body>
+</html>
+
