@@ -1,12 +1,10 @@
-fetch('main.wasm').then(response => response.arrayBuffer()).then(bytes => {
-	const mutexAddr = 0;
-	onmessage = function(e) {
-    let memory = e.data;
+const mutexAddr = 0;
+onmessage = function(e) {
+    let memory = e.data.memory;
     let imports = {env: {memory: memory}};
-    let module = WebAssembly.instantiate(bytes, imports).then(
-      ({instance}) => {
-          instance.exports.lockMutex(mutexAddr);
-          instance.exports.unlockMutex(mutexAddr);
-      });
-	};
-});
+    WebAssembly.instantiate(e.data.moduleBuffer, imports).then(({instance}) => {
+        instance.exports.lockMutex(mutexAddr);
+        console.log("worker thread!");
+        instance.exports.unlockMutex(mutexAddr);
+    });
+};

@@ -6,22 +6,26 @@
 <body>
 <script>
 	// Standard: https://github.com/WebAssembly/threads/blob/master/proposals/threads/Overview.md
-	fetch('main.wasm').then(response => response.arrayBuffer()).then(bytes => {
+	fetch('main.wasm').then(response => response.arrayBuffer()).then(moduleBuffer => {
 		let memory = new WebAssembly.Memory({initial: 1, maximum: 1, shared: true});
 		let worker = new Worker('worker.js');
 		const mutexAddr = 0;
-
-		worker.postMessage(memory);
-
+		worker.postMessage({
+			memory,
+			moduleBuffer
+		});
+		
 		let imports = {env: {memory: memory}};
-		let module = WebAssembly.instantiate(bytes, imports).then(
+		let module = WebAssembly.instantiate(moduleBuffer, imports).then(
 	    ({instance}) => {
 	        if (instance.exports.tryLockMutex(mutexAddr)) {
+				console.log("main thread!");
 	            instance.exports.unlockMutex(mutexAddr);
 	        }
 	    });
 	});  
 </script>
+
 </body>
 </html>
 
